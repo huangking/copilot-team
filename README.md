@@ -4,8 +4,8 @@
 
 - 领域逻辑：`src/taskboard/core.py`（纯函数，无 I/O）
 - CLI：`src/taskboard/cli.py`（JSON 文件持久化）
-- 测试：`tests/`（14 个用例，全部通过）
-- 练习任务：`docs/specs/0001-export-csv.md`（**CSV 导出尚未实现**）
+- 测试：`tests/`（44 个用例，全部通过）
+- 示例任务：`docs/specs/0001-export-csv.md`（已实现并通过验证，见 `docs/test-reports/`）
 
 四个 Agent 的配置都在仓库里，换台机器 clone 下来就能用。
 
@@ -13,7 +13,7 @@
 
 ```bash
 python3 -m pip install pytest
-make test          # 14 passed
+make test          # 44 passed
 make lint
 PYTHONPATH=src python3 -m taskboard add "写规格"
 PYTHONPATH=src python3 -m taskboard list
