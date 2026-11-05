@@ -49,6 +49,9 @@ def build_parser() -> argparse.ArgumentParser:
     done = commands.add_parser("done", help="mark a task as done")
     done.add_argument("id", type=int)
 
+    export = commands.add_parser("export", help="export tasks")
+    export.add_argument("--format", choices=["csv"], required=True)
+
     return parser
 
 
@@ -68,6 +71,8 @@ def main(argv: list[str] | None = None) -> int:
             task = board.complete(args.id)
             save_board(args.file, board)
             print(f"done #{task.id} {task.title}")
+        elif args.command == "export":
+            sys.stdout.buffer.write(board.to_csv().encode("utf-8"))
     except TaskError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2

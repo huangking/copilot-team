@@ -6,6 +6,8 @@ domain pure is what makes it cheap to test and safe for an agent to modify.
 
 from __future__ import annotations
 
+import csv
+import io
 from dataclasses import dataclass
 
 
@@ -64,6 +66,17 @@ class TaskBoard:
 
     def to_dicts(self) -> list[dict[str, object]]:
         return [task.to_dict() for task in self._tasks]
+
+    def to_csv(self) -> str:
+        """Serialize tasks as UTF-8-ready CSV text with RFC 4180 record endings."""
+        output = io.StringIO(newline="")
+        writer = csv.writer(output, lineterminator="\r\n")
+        writer.writerow(["id", "title", "done"])
+        for task in sorted(self._tasks, key=lambda item: item.id):
+            writer.writerow(
+                [str(task.id), task.title, "true" if task.done else "false"]
+            )
+        return output.getvalue()
 
     @classmethod
     def from_dicts(cls, rows: list[dict[str, object]]) -> "TaskBoard":
