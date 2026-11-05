@@ -79,6 +79,7 @@ PYTHONPATH=src python3 -m taskboard list
 
 拆分规则、不能并行的场景、集成检查单见 [docs/parallel-playbook.md](docs/parallel-playbook.md)；
 手把手的操作步骤见 [docs/parallel-runbook.md](docs/parallel-runbook.md)。
+用 Copilot CLI 的话，`/fleet`（会话内并行子代理）和 `-w`（每个任务一个 worktree）是另一套入口，见 [docs/copilot-cli.md](docs/copilot-cli.md)。
 
 ## 已知取舍
 
