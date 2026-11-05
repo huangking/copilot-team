@@ -77,7 +77,8 @@ PYTHONPATH=src python3 -m taskboard list
 - **Subagent fan-out**：选中 **Review Lead**，它并行跑多个只读 **Reviewer** 子代理（正确性/安全/性能/兼容），汇总后交回 Dev。
 - **云端**：一个 issue 一个 Copilot coding agent，各自开 PR。
 
-拆分规则、不能并行的场景、集成检查单见 [docs/parallel-playbook.md](docs/parallel-playbook.md)。
+拆分规则、不能并行的场景、集成检查单见 [docs/parallel-playbook.md](docs/parallel-playbook.md)；
+手把手的操作步骤见 [docs/parallel-runbook.md](docs/parallel-runbook.md)。
 
 ## 已知取舍
 

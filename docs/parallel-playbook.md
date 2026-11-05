@@ -84,8 +84,8 @@ VS Code 允许**同时存在多个 agent session**，新建会话时旧会话继
 scripts/parallel-worktrees.sh create export-csv due-date
 
 # 2) 每个目录单独开一个 VS Code 窗口
-code ../taskboard-copilot.worktrees/export-csv
-code ../taskboard-copilot.worktrees/due-date
+code ../copilot-team.worktrees/export-csv
+code ../copilot-team.worktrees/due-date
 
 # 3) 每个窗口里开一个会话，选对应 agent，prompt 里带上任务边界
 #    完成后各自提交、开 PR
