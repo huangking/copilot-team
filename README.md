@@ -69,6 +69,16 @@ PYTHONPATH=src python3 -m taskboard list
 └── pyproject.toml
 ```
 
+## 并行模式
+
+`PM → Dev → Test → DevOps` 的 handoff 链是串行的（同一会话、人工确认、下游依赖上游）。要并行有三种方式：
+
+- **多会话 / worktree**：每个任务一个会话；后台 agent 自动 worktree，本地会话可用 `scripts/parallel-worktrees.sh` 建隔离目录。
+- **Subagent fan-out**：选中 **Review Lead**，它并行跑多个只读 **Reviewer** 子代理（正确性/安全/性能/兼容），汇总后交回 Dev。
+- **云端**：一个 issue 一个 Copilot coding agent，各自开 PR。
+
+拆分规则、不能并行的场景、集成检查单见 [docs/parallel-playbook.md](docs/parallel-playbook.md)。
+
 ## 已知取舍
 
 - `tools` 名称随 VS Code 版本变化；写错会被静默忽略，以 `Chat: Diagnostics` 为准。
