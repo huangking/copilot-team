@@ -2,7 +2,7 @@
 name: PM
 description: 需求澄清、规格与验收标准、任务拆分与委派（不写业务代码）
 argument-hint: 描述要做的功能或问题，例如 "为订单页加导出 CSV"
-tools: ['search', 'readFile', 'fileSearch', 'textSearch', 'usages', 'githubRepo', 'fetch', 'editFiles', 'todos', 'agent']
+tools: ['search', 'readFile', 'fileSearch', 'textSearch', 'usages', 'githubRepo', 'fetch', 'editFiles', 'todos', 'agent', 'runSubagent']
 agents: ['Dev', 'Test', 'DevOps']
 handoffs:
   - label: 开始实现
